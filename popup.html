@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coronalgium</title>
+    <script type="text/javascript" src="popup.js" defer></script>
+    <style>
+      .header {
+        text-align: center;
+      }
+
+      .container {
+        padding: 5px;
+        border: 1px solid;
+        border-radius: 5px;
+      }
+      
+      .loading {
+        font-style: italic;
+      }
+      
+      .errors {
+        font-weight: bold;
+      }
+
+      .more {
+        
+      }
+    </style>
+  </head>
+  <body style="width: 300px">
+    <h1 class="header">Coronalgium</h1>
+    <div class="container">
+      <div class="loading">Loading...</div>
+      <div class="errors"></div>
+      <div class="results">
+        <p><strong>New cases: </strong><span class="todayCases"></span></p>
+        <p><strong>New deaths: </strong><span class="todayDeaths"></span></p>
+        <p><strong>Total cases: </strong><span class="cases"></span></p>
+        <p><strong>Total recovered: </strong> <span class="recovered"></span></p>
+        <p><strong>Total deaths: </strong><span class="deaths"></span></p>
+        <p><strong>Total tests: </strong><span class="tests"></span></p>
+
+        <a class="more" href="https://coronavirus.app/tracking/belgium" target="_blank">More</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
