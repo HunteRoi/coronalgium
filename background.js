@@ -1,5 +1,7 @@
 const storageKey = 'coronalgium';
 const api = 'https://coronavirus-19-api.herokuapp.com/countries/belgium';
+const redColor = '#FF0000';
+const greenColor = '#008000';
 
 chrome.runtime.onInstalled.addListener(() => {
   console.log('onInstalled....');
@@ -41,8 +43,6 @@ function scheduleWatchdog() {
 }
 
 async function startRequest() {
-  console.dir(chrome);
-
   console.log('start HTTP Request...');
   
   try {
@@ -55,21 +55,26 @@ async function startRequest() {
     }
     const body = JSON.parse(data);
 
-    const isPositiveChange = false;
-    chrome.browserAction.setBadgeBackgroundColor({ color: '#FF0000' });
+    chrome.browserAction.setBadgeBackgroundColor({ color: redColor});
     
+    let isPositiveChange = false;
+    let previousCases = 'N/A';
+    let previousDeaths = 'N/A';
     const stored = localStorage.getItem(storageKey);
     if (stored) {
       const data = JSON.parse(stored);
-      if (data.todayCases > body.todayCases) {
-        chrome.browserAction.setBadgeBackgroundColor({ color: '008000' });
+      previousCases = data.todayCases;
+      previousDeaths = data.todayDeaths;
+
+      if (data.todayCases >= body.todayCases) {
+        chrome.browserAction.setBadgeBackgroundColor({ color: greenColor });
         isPositiveChange = true;
       } else {
-        chrome.browserAction.setBadgeBackgroundColor({ color: '#FF0000' });
+        chrome.browserAction.setBadgeBackgroundColor({ color: redColor });
       }
     }
 
-    localStorage.setItem(storageKey, JSON.stringify({ ...body, isPositiveChange }));
+    localStorage.setItem(storageKey, JSON.stringify({ ...body, isPositiveChange, previousCases, previousDeaths }));
     chrome.browserAction.setBadgeText({ text: body.todayCases.toString() });
   }
   catch (error) {
