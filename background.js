@@ -86,7 +86,7 @@ function getCached(date) {
   try {  
     const data = JSON.parse(stored);
     console.log(data);
-    return (data && data.datetime && data.datetime.split('T')[0] === date) ? data : null;
+    return (data && data.datetime && data.datetime.split('T')[0] === date.toISOString().split('T')[0]) ? data : null;
   } 
   catch {
     return null;
