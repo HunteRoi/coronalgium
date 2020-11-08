@@ -24,6 +24,10 @@
       .errors {
         font-weight: bold;
       }
+
+      .footer {
+        color: grey;
+      }
     </style>
   </head>
   <body style="width: 300px">
@@ -32,22 +36,27 @@
       <div class="loading">Loading...</div>
       <div class="errors"></div>
       <div class="results">
-        <p><strong>Previous cases: </strong><span class="previousCases"></span></p>
-        <p><strong>Previous deaths: </strong><span class="previousDeaths"></span></p>
+        <header>
+          <p><strong>Yesterday cases: </strong><span class="yesterdayCases"></span></p>
+          <p><strong>Yesterday deaths: </strong><span class="yesterdayDeaths"></span></p>
+          
+          <br />
 
-        <br />
-
-        <p><strong>Today new cases: </strong><span class="todayCases"></span></p>
-        <p><strong>Today new deaths: </strong><span class="todayDeaths"></span></p>
+          <p><strong>Today new cases: </strong><span class="todayCases"></span></p>
+          <p><strong>Today new deaths: </strong><span class="todayDeaths"></span></p>
+        </header>
         
-        <br />
-        
-        <p><strong>Total cases: </strong><span class="cases"></span></p>
-        <p><strong>Total recovered: </strong> <span class="recovered"></span></p>
-        <p><strong>Total deaths: </strong><span class="deaths"></span></p>
-        <p><strong>Total tests: </strong><span class="tests"></span></p>
-
-        <a class="more" href="https://coronavirus.app/tracking/belgium" target="_blank">More</a>
+        <main>
+          <p><strong>Total cases: </strong><span class="cases"></span></p>
+          <p><strong>Total recovered: </strong> <span class="recovered"></span></p>
+          <p><strong>Total deaths: </strong><span class="deaths"></span></p>
+          <p><strong>Total tests: </strong><span class="tests"></span></p>
+        </main>
+      
+        <footer class="footer">
+          <p><a class="more" href="https://coronavirus.app/tracking/belgium" target="_blank">More</a></p>
+          <p>Updated on <strong><span class="updatedOn"></span></strong></p>
+        </footer>
       </div>
     </div>
   </div>
